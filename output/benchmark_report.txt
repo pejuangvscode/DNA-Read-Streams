@@ -1,0 +1,45 @@
+=== Validation ===
+GC mismatches           : 0
+Homopolymer mismatches  : 76896
+Motif mismatches        : 0
+Entropy mismatches      : 0
+CPU reference time (s)  : 5.36926
+
+=== Validation vs CPU Sequential ===
+GC mismatches           : 178
+Homopolymer mismatches  : 76896
+Motif mismatches        : 0
+Entropy mismatches      : 441
+
+=== GPU Timings ===
+H2D transfer ms         : 1.55917
+GC kernel ms            : 23.2131
+Homopolymer kernel ms   : 13.2466
+Motif kernel ms         : 5.33674
+Entropy kernel ms       : 159.164
+D2H transfer ms         : 24.2087
+Total pipeline ms       : 318.881
+
+=== CPU Sequential Timings ===
+GC sequential ms        : 79.0905
+Homopolymer seq ms      : 38.2769
+Motif sequential ms     : 503.135
+Entropy sequential ms   : 4742.62
+Total sequential ms     : 5363.13
+
+=== Throughput ===
+GC      : 0.430792 GB/s, 4.30792e+08 bases/s
+HOMO    : 0.754913 GB/s, 7.54913e+08 bases/s
+MOTIF   : 1.8738 GB/s, 1.8738e+09 bases/s
+ENTROPY : 0.0628282 GB/s, 6.28282e+07 bases/s
+
+=== Compare Parallel vs Sequential ===
+Speedup total (CPU seq / GPU total) : 16.8186x
+CPU sequential throughput           : 0.00186458 GB/s, 1.86458e+06 bases/s
+
+=== Dataset Generation ===
+Dataset type             : synthetic random DNA
+Sequence length          : 10000000 bases
+Alphabet                 : A, C, G, T
+RNG                      : mt19937
+Seed                     : 12345

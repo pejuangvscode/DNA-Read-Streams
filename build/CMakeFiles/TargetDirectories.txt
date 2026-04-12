@@ -1,0 +1,3 @@
+/home/teo/Documents/kompar/build/CMakeFiles/dna_pipeline.dir
+/home/teo/Documents/kompar/build/CMakeFiles/edit_cache.dir
+/home/teo/Documents/kompar/build/CMakeFiles/rebuild_cache.dir
