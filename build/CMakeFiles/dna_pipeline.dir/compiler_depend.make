@@ -669,6 +669,7 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/bit \
   /usr/include/c++/13/bits/algorithmfwd.h \
   /usr/include/c++/13/bits/alloc_traits.h \
+  /usr/include/c++/13/bits/allocated_ptr.h \
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
@@ -677,6 +678,7 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/bits/char_traits.h \
   /usr/include/c++/13/bits/charconv.h \
   /usr/include/c++/13/bits/chrono.h \
+  /usr/include/c++/13/bits/codecvt.h \
   /usr/include/c++/13/bits/concept_check.h \
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
@@ -686,6 +688,11 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
+  /usr/include/c++/13/bits/fs_dir.h \
+  /usr/include/c++/13/bits/fs_fwd.h \
+  /usr/include/c++/13/bits/fs_ops.h \
+  /usr/include/c++/13/bits/fs_path.h \
+  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -696,8 +703,11 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/bits/istream.tcc \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
+  /usr/include/c++/13/bits/locale_conv.h \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
+  /usr/include/c++/13/bits/locale_facets_nonio.h \
+  /usr/include/c++/13/bits/locale_facets_nonio.tcc \
   /usr/include/c++/13/bits/localefwd.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
@@ -711,12 +721,16 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/bits/postypes.h \
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
+  /usr/include/c++/13/bits/quoted_string.h \
   /usr/include/c++/13/bits/random.h \
   /usr/include/c++/13/bits/random.tcc \
   /usr/include/c++/13/bits/range_access.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
+  /usr/include/c++/13/bits/shared_ptr.h \
+  /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
@@ -738,6 +752,7 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
+  /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_set.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
@@ -748,6 +763,7 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/codecvt \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -761,15 +777,20 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/ext/aligned_buffer.h \
   /usr/include/c++/13/ext/alloc_traits.h \
   /usr/include/c++/13/ext/atomicity.h \
+  /usr/include/c++/13/ext/concurrence.h \
   /usr/include/c++/13/ext/numeric_traits.h \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/filesystem \
+  /usr/include/c++/13/fstream \
   /usr/include/c++/13/initializer_list \
+  /usr/include/c++/13/iomanip \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/locale \
   /usr/include/c++/13/new \
   /usr/include/c++/13/numeric \
   /usr/include/c++/13/ostream \
@@ -779,6 +800,7 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/random \
   /usr/include/c++/13/ratio \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -816,6 +838,7 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/libintl.h \
   /usr/include/library_types.h \
   /usr/include/limits.h \
   /usr/include/linux/errno.h \
@@ -922,8 +945,10 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -931,8 +956,10 @@ CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp \
   /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -1642,6 +1669,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
@@ -1652,7 +1681,7 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
@@ -1662,9 +1691,9 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
-/usr/include/wchar.h:
-
 /usr/include/locale.h:
+
+/usr/include/libintl.h:
 
 /usr/include/errno.h:
 
@@ -1673,6 +1702,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 /usr/include/ctype.h:
 
 /usr/include/c++/13/vector:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
 
 /usr/include/c++/13/typeinfo:
 
@@ -1722,7 +1753,13 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/c++/13/iosfwd:
 
+/usr/include/c++/13/fstream:
+
+/usr/include/c++/13/filesystem:
+
 /usr/include/c++/13/ext/string_conversions.h:
+
+/usr/include/c++/13/ext/concurrence.h:
 
 /usr/include/c++/13/ext/alloc_traits.h:
 
@@ -1754,6 +1791,10 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/c++/13/bits/uses_allocator.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/c++/13/bits/unique_ptr.h:
+
 /usr/include/c++/13/bits/stringfwd.h:
 
 /usr/include/c++/13/bits/stl_vector.h:
@@ -1775,6 +1816,12 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 /usr/include/c++/13/bits/stl_algobase.h:
 
 /usr/include/c++/13/bits/stl_algo.h:
+
+/usr/include/wchar.h:
+
+/usr/include/c++/13/bits/shared_ptr_base.h:
+
+/usr/include/c++/13/bits/shared_ptr.h:
 
 /usr/include/c++/12/algorithm:
 
@@ -1807,6 +1854,20 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 /usr/include/c++/13/bits/memoryfwd.h:
 
 /usr/include/c++/13/bits/localefwd.h:
+
+/usr/include/c++/13/bits/locale_facets_nonio.tcc:
+
+/usr/include/c++/13/bits/locale_facets_nonio.h:
+
+/usr/include/c++/13/bits/uniform_int_dist.h:
+
+/usr/include/c++/13/bits/locale_classes.tcc:
+
+/usr/include/c++/13/bits/locale_conv.h:
+
+/usr/include/c++/13/bits/istream.tcc:
+
+/usr/include/c++/13/bits/invoke.h:
 
 /usr/include/texture_types.h:
 
@@ -1856,6 +1917,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/c++/13/bits/hashtable_policy.h:
 
+/usr/include/c++/13/iomanip:
+
 /usr/include/strings.h:
 
 /usr/include/c++/13/bits/stl_function.h:
@@ -1898,11 +1961,17 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/driver_types.h:
 
+/usr/include/c++/13/bits/locale_facets.h:
+
+/usr/include/c++/12/bits/stl_construct.h:
+
 /usr/include/cuda_runtime_api.h:
 
 /usr/include/c++/13/bits/streambuf_iterator.h:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/c++/13/locale:
 
 /usr/include/sm_61_intrinsics.h:
 
@@ -1919,8 +1988,6 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 /usr/include/c++/13/tr1/poly_laguerre.tcc:
 
 /usr/include/crt/math_functions.h:
-
-/usr/include/c++/12/bits/exception.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h:
 
@@ -2004,6 +2071,10 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/time.h:
 
+/usr/include/c++/12/bits/exception.h:
+
+/usr/include/c++/13/bits/fs_fwd.h:
+
 /usr/include/cuda_runtime.h:
 
 /usr/include/c++/13/tr1/bessel_function.tcc:
@@ -2030,17 +2101,15 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/vector_functions.hpp:
 
-/usr/include/c++/12/bits/stl_algobase.h:
+/usr/include/c++/13/bits/locale_facets.tcc:
+
+/usr/include/c++/12/tr1/gamma.tcc:
 
 /usr/include/crt/sm_80_rt.h:
 
 /usr/include/sm_32_intrinsics.h:
 
 /usr/include/c++/12/bits/stl_vector.h:
-
-/usr/include/c++/12/bits/stl_construct.h:
-
-/usr/include/c++/13/bits/locale_facets.h:
 
 /usr/include/assert.h:
 
@@ -2056,6 +2125,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h:
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
+
 /usr/include/sm_32_atomic_functions.h:
 
 /usr/include/c++/13/ratio:
@@ -2069,6 +2140,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 /usr/include/c++/12/bits/predefined_ops.h:
 
 /usr/include/stdint.h:
+
+/usr/include/c++/13/codecvt:
 
 /usr/include/c++/12/bits/stl_iterator_base_types.h:
 
@@ -2124,6 +2197,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
+/usr/include/c++/13/bits/sstream.tcc:
+
 /home/teo/Documents/kompar/entropy.cu:
 
 /usr/include/pthread.h:
@@ -2148,6 +2223,10 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
+/usr/include/c++/12/bits/stl_algobase.h:
+
+/usr/include/c++/13/bits/fs_ops.h:
+
 /usr/include/c++/12/bits/stl_iterator.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
@@ -2163,8 +2242,6 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 /usr/include/c++/13/ios:
 
 /usr/include/sm_30_intrinsics.h:
-
-/usr/include/c++/12/initializer_list:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
@@ -2230,6 +2307,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
+/usr/include/c++/13/sstream:
+
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/12/cstdlib:
@@ -2269,6 +2348,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 /usr/include/c++/13/cwchar:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/c++/13/bits/quoted_string.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio2.h:
 
@@ -2334,6 +2415,10 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/c++/13/bits/charconv.h:
 
+/usr/include/c++/12/initializer_list:
+
+/usr/include/c++/13/bits/fs_path.h:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
@@ -2378,9 +2463,15 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
+/usr/include/c++/13/bits/ios_base.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:
+
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
 /usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/13/bits/fstream.tcc:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h:
 
@@ -2395,6 +2486,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 /usr/include/c++/13/backward/binders.h:
 
 /usr/include/c++/12/bits/specfun.h:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
 
 /usr/include/c++/13/bit:
 
@@ -2412,6 +2505,8 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/c++/13/bits/chrono.h:
 
+/usr/include/c++/13/bits/codecvt.h:
+
 /usr/include/c++/13/bits/cxxabi_init_exception.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
@@ -2424,24 +2519,10 @@ CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_
 
 /usr/include/c++/13/bits/exception_ptr.h:
 
-/usr/include/c++/13/bits/istream.tcc:
+/usr/include/c++/13/bits/fs_dir.h:
 
 /usr/include/c++/13/bits/functional_hash.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/c++/13/bits/hashtable.h:
-
-/usr/include/c++/13/bits/invoke.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:
-
-/usr/include/c++/13/bits/ios_base.h:
-
-/usr/include/c++/13/bits/uniform_int_dist.h:
-
-/usr/include/c++/13/bits/locale_classes.tcc:
-
-/usr/include/c++/12/tr1/gamma.tcc:
-
-/usr/include/c++/13/bits/locale_facets.tcc:
