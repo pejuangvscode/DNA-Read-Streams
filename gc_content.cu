@@ -49,7 +49,6 @@ __global__ void gc_query_kernel(const int* __restrict__ d_gc_prefix,
         return;
     }
 
-    // Keep out-of-range windows zeroed to simplify downstream aggregation logic.
     const int in_bounds = static_cast<int>(idx + window <= n);
     int violation = 0;
 
