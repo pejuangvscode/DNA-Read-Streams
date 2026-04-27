@@ -3,19 +3,19 @@ Mode                     : parallel
 Use --mode parallel|sequential|both
 
 === GPU Timings ===
-H2D transfer ms         : 0.058816
-GC kernel ms            : 0.503808
-Homopolymer kernel ms   : 0.999424
-Motif kernel ms         : 0.2
-Entropy kernel ms       : 4.66688
-D2H transfer ms         : 0.633888
-Total pipeline ms       : 18.7853
+H2D transfer ms         : 0.062688
+GC kernel ms            : 0.955776
+Homopolymer kernel ms   : 1.1577
+Motif kernel ms         : 0.225792
+Entropy kernel ms       : 4.86902
+D2H transfer ms         : 0.646432
+Total pipeline ms       : 20.3267
 
 === GPU Throughput ===
-GC      : 0.518769 GB/s, 5.18769e+08 bases/s
-HOMO    : 0.261511 GB/s, 2.61511e+08 bases/s
-MOTIF   : 1.3068 GB/s, 1.3068e+09 bases/s
-ENTROPY : 0.0560032 GB/s, 5.60032e+07 bases/s
+GC      : 0.273453 GB/s, 2.73453e+08 bases/s
+HOMO    : 0.225759 GB/s, 2.25759e+08 bases/s
+MOTIF   : 1.15753 GB/s, 1.15753e+09 bases/s
+ENTROPY : 0.0536781 GB/s, 5.36781e+07 bases/s
 
 
 === Dataset Generation ===
