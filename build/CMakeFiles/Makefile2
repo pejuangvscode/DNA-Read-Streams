@@ -64,6 +64,8 @@ CMAKE_BINARY_DIR = /home/teo/Documents/kompar/build
 
 # The main recursive "all" target.
 all: CMakeFiles/dna_pipeline.dir/all
+all: CMakeFiles/dna_pipeline_parallel.dir/all
+all: CMakeFiles/dna_pipeline_sequential.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +74,8 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/dna_pipeline.dir/clean
+clean: CMakeFiles/dna_pipeline_parallel.dir/clean
+clean: CMakeFiles/dna_pipeline_sequential.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -99,6 +103,58 @@ dna_pipeline: CMakeFiles/dna_pipeline.dir/rule
 CMakeFiles/dna_pipeline.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/clean
 .PHONY : CMakeFiles/dna_pipeline.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/dna_pipeline_parallel.dir
+
+# All Build rule for target.
+CMakeFiles/dna_pipeline_parallel.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18 "Built target dna_pipeline_parallel"
+.PHONY : CMakeFiles/dna_pipeline_parallel.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/dna_pipeline_parallel.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documents/kompar/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dna_pipeline_parallel.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documents/kompar/build/CMakeFiles 0
+.PHONY : CMakeFiles/dna_pipeline_parallel.dir/rule
+
+# Convenience name for target.
+dna_pipeline_parallel: CMakeFiles/dna_pipeline_parallel.dir/rule
+.PHONY : dna_pipeline_parallel
+
+# clean rule for target.
+CMakeFiles/dna_pipeline_parallel.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/clean
+.PHONY : CMakeFiles/dna_pipeline_parallel.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/dna_pipeline_sequential.dir
+
+# All Build rule for target.
+CMakeFiles/dna_pipeline_sequential.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27 "Built target dna_pipeline_sequential"
+.PHONY : CMakeFiles/dna_pipeline_sequential.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/dna_pipeline_sequential.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documents/kompar/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dna_pipeline_sequential.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/teo/Documents/kompar/build/CMakeFiles 0
+.PHONY : CMakeFiles/dna_pipeline_sequential.dir/rule
+
+# Convenience name for target.
+dna_pipeline_sequential: CMakeFiles/dna_pipeline_sequential.dir/rule
+.PHONY : dna_pipeline_sequential
+
+# clean rule for target.
+CMakeFiles/dna_pipeline_sequential.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/clean
+.PHONY : CMakeFiles/dna_pipeline_sequential.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

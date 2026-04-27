@@ -12,20 +12,30 @@ Fitur yang dihitung:
 - Forbidden motif collision (k-mer hashing).
 - Shannon entropy per window.
 
+Dataset ACGT sekarang berasal dari file biner input (bukan RNG random), dengan mapping 2-bit naif:
+
+- `00 -> A`
+- `01 -> C`
+- `10 -> G`
+- `11 -> T`
+
 ## Struktur Proyek
 
-- `dna_features.cuh`: konstanta, struct hasil, deklarasi API.
-- `prefix_scan.cu`: Blelloch exclusive scan + segmented scan.
-- `gc_content.cu`: kernel GC mapping + query berbasis prefix-scan.
-- `homopolymer.cu`: kernel homopolymer berbasis segmented scan.
-- `motif_match.cu`: kernel motif matching (2-bit hash, constant memory).
-- `entropy.cu`: kernel entropy (shared histogram + warp reduction).
-- `pipeline.cu`: orkestrasi 3 stream (`H2D -> compute -> D2H`) per chunk.
-- `main.cpp`: dataset generator, benchmark, validasi, compare paralel vs sekuensial.
+- `src/dna_features.cuh`: konstanta, struct hasil, deklarasi API.
+- `src/prefix_scan.cu`: Blelloch exclusive scan + segmented scan.
+- `src/gc_content.cu`: kernel GC mapping + query berbasis prefix-scan.
+- `src/homopolymer.cu`: kernel homopolymer berbasis segmented scan.
+- `src/motif_match.cu`: kernel motif matching (2-bit hash, constant memory).
+- `src/entropy.cu`: kernel entropy (shared histogram + warp reduction).
+- `src/pipeline.cu`: orkestrasi 3 stream (`H2D -> compute -> D2H`) per chunk.
+- `src/main.cpp`: dataset generator, benchmark, validasi, compare paralel vs sekuensial.
+- `docs/`: kumpulan dokumentasi naratif proyek.
+- `dataset/`: tempat file input biner untuk dataset ACGT.
+- `prof/Parallel` dan `prof/Sequential`: hasil benchmark/profiling yang dipisah.
 
 ## Konstanta Penting
 
-Ada di `dna_features.cuh`:
+Ada di `src/dna_features.cuh`:
 
 - `WINDOW_SIZE = 50`
 - `MAX_HOMOPOLYMER = 3`
@@ -33,15 +43,93 @@ Ada di `dna_features.cuh`:
 - `GC_MAX = 0.55f`
 - `PIPELINE_CHUNK_SIZE = 1 << 20` (1 juta base per chunk)
 
-## Build dan Run (Linux)
+## Build (Linux)
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j
-./build/dna_pipeline
 ```
 
-Jika generator berbeda, binary dapat berada pada path lain di bawah `build/`.
+## Binary yang Tersedia
+
+Setelah build, ada tiga binary:
+
+- `./build/dna_pipeline`
+   - Binary umum, bisa dipilih dengan mode runtime.
+- `./build/dna_pipeline_parallel`
+   - Binary khusus workload GPU (untuk profiling parallel yang bersih).
+- `./build/dna_pipeline_sequential`
+   - Binary khusus workload CPU sequential.
+
+Jika generator berbeda, lokasi executable bisa sedikit berbeda di bawah folder `build/`.
+
+## Cara Menjalankan
+
+### 1) Mode runtime pada binary umum
+
+```bash
+./build/dna_pipeline --input-file <path_file_biner> --mode both
+./build/dna_pipeline --input-file <path_file_biner> --mode parallel
+./build/dna_pipeline --input-file <path_file_biner> --mode sequential
+```
+
+Alias yang didukung:
+
+```bash
+./build/dna_pipeline --input-file <path_file_biner> --both
+./build/dna_pipeline --input-file <path_file_biner> --parallel
+./build/dna_pipeline --input-file <path_file_biner> --sequential
+```
+
+### 2) Binary terpisah
+
+```bash
+./build/dna_pipeline_parallel --input-file <path_file_biner>
+./build/dna_pipeline_sequential --input-file <path_file_biner>
+```
+
+Catatan:
+
+- Argumen `--input-file` wajib diberikan.
+- Secara default, panjang sekuens otomatis mengikuti ukuran file: `jumlah_byte_file * 4` bases.
+- Anda bisa override panjang sekuens dengan `--sequence-length <n>`.
+- Jika `--sequence-length` lebih besar daripada data input, bytes file akan diputar ulang (cyclic).
+
+Contoh override panjang sekuens:
+
+```bash
+./build/dna_pipeline --input-file dataset/sample_dataset-1.txt --sequence-length 1000000 --mode both
+```
+
+## Struktur Output Report
+
+Report sekarang dipisah agar hasil tidak tercampur:
+
+- `prof/Parallel/benchmark_report.txt`
+- `prof/Sequential/benchmark_report.txt`
+- `prof/Both/benchmark_report.txt` (jika menjalankan mode `both`)
+
+Ini sengaja dipisah supaya profiling mode parallel tidak tercampur workload sequential.
+
+## Profiling Nsight Systems (Disarankan)
+
+Untuk profiling GPU yang bersih, jalankan binary parallel-only:
+
+```bash
+mkdir -p prof/Parallel
+nsys profile \
+   --force-overwrite=true \
+   --trace=cuda,nvtx,osrt \
+   --sample=none \
+   --stats=true \
+   -o prof/Parallel/dna_pipeline_parallel \
+   ./build/dna_pipeline_parallel --input-file <path_file_biner>
+```
+
+Hasil profiling akan tersimpan di:
+
+- `prof/Parallel/dna_pipeline_parallel.nsys-rep`
+- `prof/Parallel/dna_pipeline_parallel.sqlite`
 
 ## Gambaran Arsitektur Paralel (GPU)
 
@@ -79,7 +167,7 @@ Sinkronisasi antar tahap dilakukan dengan CUDA event (`cudaEventRecord`, `cudaSt
 
 ## Algoritma Skuensial (CPU Baseline)
 
-`main.cpp` kini memiliki baseline sekuensial eksplisit:
+`src/main.cpp` kini memiliki baseline sekuensial eksplisit:
 
 - `cpu_gc_sequential`
 - `cpu_homopolymer_sequential`
@@ -95,7 +183,7 @@ Karakteristik baseline:
 
 ## Metode Compare Paralel vs Skuensial
 
-Program mencetak:
+Jika mode `both` dipakai, program mencetak:
 
 1. Validasi terhadap CPU reference chunked (emulasi perilaku chunk GPU).
 2. Validasi terhadap CPU sekuensial baseline.
@@ -115,26 +203,34 @@ Throughput dihitung sebagai:
 
 ## Bagaimana Dataset Digenerate
 
-Dataset bersifat sintetis dan reproducible, dibuat di host sebelum pipeline dijalankan.
+Dataset sekarang dibuat dari file biner eksternal yang diberikan lewat `--input-file`.
 
-Implementasi ada di fungsi `generate_synthetic_dataset` (`main.cpp`):
+Implementasi ada di fungsi `generate_dataset_from_binary_file` (`src/main.cpp`):
 
-- Panjang default: `10,000,000` base.
-- Alphabet: `{A, C, G, T}`.
-- RNG: `mt19937`.
-- Seed default: `12345` (deterministik, hasil repeatable antar run pada konfigurasi sama).
-- Distribusi pemilihan base: uniform diskrit pada 4 simbol.
+- Program membaca seluruh byte file input.
+- Setiap byte dipecah menjadi 4 simbol DNA (tiap simbol 2-bit):
+   - bit 7..6 -> simbol 1
+   - bit 5..4 -> simbol 2
+   - bit 3..2 -> simbol 3
+   - bit 1..0 -> simbol 4
+- Mapping simbol:
+   - `00 -> A`
+   - `01 -> C`
+   - `10 -> G`
+   - `11 -> T`
+- Jika panjang sekuens target lebih besar daripada data yang tersedia, byte file diputar ulang (cyclic).
 
-Pseudo proses:
+Keuntungan pendekatan ini:
 
-1. Inisialisasi RNG dengan seed tetap.
-2. Untuk setiap posisi `i` dari `0..N-1`:
-   - Ambil angka acak di rentang `[0,3]`.
-   - Map ke `A/C/G/T`.
-   - Simpan ke buffer sequence.
-
-Ini memastikan benchmark stabil, mudah direproduksi, dan cocok untuk uji regresi performa.
+- Input dapat berasal dari file apa pun.
+- Eksperimen bisa diuji pada pola data non-random.
+- Konsisten untuk perbandingan mode `parallel`, `sequential`, dan `both` selama file input sama.
 
 ## Catatan Boundary
 
 Pipeline GPU diproses per chunk untuk throughput tinggi. Pada fitur windowed, perilaku di tepi chunk dapat berbeda dari pendekatan global kontinu jika tidak ada halo overlap. Karena itu, proyek ini menampilkan lebih dari satu mode validasi agar perbedaan perilaku terlihat eksplisit.
+
+## Dokumen Tambahan
+
+- `docs/ALUR_PROGRAM.md`: ringkasan alur eksekusi dan hubungan antarmodul.
+- `docs/PENJELASAN_DETAIL_PROYEK.md`: penjelasan naratif detail tentang apa yang dikerjakan proyek.

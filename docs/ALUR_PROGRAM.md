@@ -18,25 +18,25 @@ Fitur yang dihitung:
 
 ## 2. Komponen Utama
 
-- `main.cpp`
+- `src/main.cpp`
   - Menghasilkan dataset sintetis.
   - Menjalankan pipeline GPU.
   - Menjalankan baseline CPU (chunked reference dan skuensial global).
   - Membandingkan hasil.
-  - Menulis report ke `output/benchmark_report.txt`.
-- `pipeline.cu`
+  - Menulis report ke folder `prof/` sesuai mode run.
+- `src/pipeline.cu`
   - Orkestrasi 3 stream CUDA untuk overlap transfer dan komputasi.
-- `gc_content.cu`
+- `src/gc_content.cu`
   - Kernel mapping GC + query window berbasis prefix scan.
-- `homopolymer.cu`
+- `src/homopolymer.cu`
   - Kernel run-length berbasis segmented scan.
-- `motif_match.cu`
+- `src/motif_match.cu`
   - Kernel rolling hash 2-bit dan lookup motif terlarang.
-- `entropy.cu`
+- `src/entropy.cu`
   - Kernel histogram shared memory + hitung entropy.
-- `prefix_scan.cu`
+- `src/prefix_scan.cu`
   - Primitive scan (exclusive + segmented) untuk modul lain.
-- `dna_features.cuh`
+- `src/dna_features.cuh`
   - Konstanta, struct output, dan deklarasi API.
 
 ## 3. Alur Eksekusi End-to-End
@@ -55,7 +55,7 @@ Fitur yang dihitung:
 6. Program menghitung mismatch GPU vs CPU.
 7. Program menghitung metrik performa (timing, throughput, speedup).
 8. Program mencetak report ke terminal.
-9. Program menyimpan report yang sama ke `output/benchmark_report.txt`.
+9. Program menyimpan report yang sama ke `prof/Parallel`, `prof/Sequential`, atau `prof/Both`.
 10. Program membebaskan semua resource host/device.
 
 ## 4. Dataset: Bagaimana Digenerate

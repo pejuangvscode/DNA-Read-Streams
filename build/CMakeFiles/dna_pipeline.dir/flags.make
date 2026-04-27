@@ -11,7 +11,7 @@ CUDA_FLAGS = -O3 -DNDEBUG -std=c++17 "--generate-code=arch=compute_70,code=[comp
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/teo/Documents/kompar
+CXX_INCLUDES = -I/home/teo/Documents/kompar/src
 
 CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -O3
 

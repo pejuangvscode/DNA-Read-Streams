@@ -129,173 +129,241 @@ dna_pipeline/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/build
 .PHONY : dna_pipeline/fast
 
-entropy.o: entropy.cu.o
-.PHONY : entropy.o
+#=============================================================================
+# Target rules for targets named dna_pipeline_parallel
+
+# Build rule for target.
+dna_pipeline_parallel: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dna_pipeline_parallel
+.PHONY : dna_pipeline_parallel
+
+# fast build rule for target.
+dna_pipeline_parallel/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/build
+.PHONY : dna_pipeline_parallel/fast
+
+#=============================================================================
+# Target rules for targets named dna_pipeline_sequential
+
+# Build rule for target.
+dna_pipeline_sequential: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dna_pipeline_sequential
+.PHONY : dna_pipeline_sequential
+
+# fast build rule for target.
+dna_pipeline_sequential/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/build
+.PHONY : dna_pipeline_sequential/fast
+
+src/entropy.o: src/entropy.cu.o
+.PHONY : src/entropy.o
 
 # target to build an object file
-entropy.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/entropy.cu.o
-.PHONY : entropy.cu.o
+src/entropy.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/entropy.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/entropy.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/entropy.cu.o
+.PHONY : src/entropy.cu.o
 
-entropy.i: entropy.cu.i
-.PHONY : entropy.i
+src/entropy.i: src/entropy.cu.i
+.PHONY : src/entropy.i
 
 # target to preprocess a source file
-entropy.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/entropy.cu.i
-.PHONY : entropy.cu.i
+src/entropy.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/entropy.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/entropy.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/entropy.cu.i
+.PHONY : src/entropy.cu.i
 
-entropy.s: entropy.cu.s
-.PHONY : entropy.s
+src/entropy.s: src/entropy.cu.s
+.PHONY : src/entropy.s
 
 # target to generate assembly for a file
-entropy.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/entropy.cu.s
-.PHONY : entropy.cu.s
+src/entropy.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/entropy.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/entropy.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/entropy.cu.s
+.PHONY : src/entropy.cu.s
 
-gc_content.o: gc_content.cu.o
-.PHONY : gc_content.o
+src/gc_content.o: src/gc_content.cu.o
+.PHONY : src/gc_content.o
 
 # target to build an object file
-gc_content.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/gc_content.cu.o
-.PHONY : gc_content.cu.o
+src/gc_content.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/gc_content.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/gc_content.cu.o
+.PHONY : src/gc_content.cu.o
 
-gc_content.i: gc_content.cu.i
-.PHONY : gc_content.i
+src/gc_content.i: src/gc_content.cu.i
+.PHONY : src/gc_content.i
 
 # target to preprocess a source file
-gc_content.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/gc_content.cu.i
-.PHONY : gc_content.cu.i
+src/gc_content.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/gc_content.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/gc_content.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/gc_content.cu.i
+.PHONY : src/gc_content.cu.i
 
-gc_content.s: gc_content.cu.s
-.PHONY : gc_content.s
+src/gc_content.s: src/gc_content.cu.s
+.PHONY : src/gc_content.s
 
 # target to generate assembly for a file
-gc_content.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/gc_content.cu.s
-.PHONY : gc_content.cu.s
+src/gc_content.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/gc_content.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/gc_content.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/gc_content.cu.s
+.PHONY : src/gc_content.cu.s
 
-homopolymer.o: homopolymer.cu.o
-.PHONY : homopolymer.o
+src/homopolymer.o: src/homopolymer.cu.o
+.PHONY : src/homopolymer.o
 
 # target to build an object file
-homopolymer.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/homopolymer.cu.o
-.PHONY : homopolymer.cu.o
+src/homopolymer.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/homopolymer.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/homopolymer.cu.o
+.PHONY : src/homopolymer.cu.o
 
-homopolymer.i: homopolymer.cu.i
-.PHONY : homopolymer.i
+src/homopolymer.i: src/homopolymer.cu.i
+.PHONY : src/homopolymer.i
 
 # target to preprocess a source file
-homopolymer.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/homopolymer.cu.i
-.PHONY : homopolymer.cu.i
+src/homopolymer.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/homopolymer.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/homopolymer.cu.i
+.PHONY : src/homopolymer.cu.i
 
-homopolymer.s: homopolymer.cu.s
-.PHONY : homopolymer.s
+src/homopolymer.s: src/homopolymer.cu.s
+.PHONY : src/homopolymer.s
 
 # target to generate assembly for a file
-homopolymer.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/homopolymer.cu.s
-.PHONY : homopolymer.cu.s
+src/homopolymer.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/homopolymer.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/homopolymer.cu.s
+.PHONY : src/homopolymer.cu.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
-motif_match.o: motif_match.cu.o
-.PHONY : motif_match.o
+src/motif_match.o: src/motif_match.cu.o
+.PHONY : src/motif_match.o
 
 # target to build an object file
-motif_match.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/motif_match.cu.o
-.PHONY : motif_match.cu.o
+src/motif_match.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/motif_match.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/motif_match.cu.o
+.PHONY : src/motif_match.cu.o
 
-motif_match.i: motif_match.cu.i
-.PHONY : motif_match.i
+src/motif_match.i: src/motif_match.cu.i
+.PHONY : src/motif_match.i
 
 # target to preprocess a source file
-motif_match.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/motif_match.cu.i
-.PHONY : motif_match.cu.i
+src/motif_match.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/motif_match.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/motif_match.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/motif_match.cu.i
+.PHONY : src/motif_match.cu.i
 
-motif_match.s: motif_match.cu.s
-.PHONY : motif_match.s
+src/motif_match.s: src/motif_match.cu.s
+.PHONY : src/motif_match.s
 
 # target to generate assembly for a file
-motif_match.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/motif_match.cu.s
-.PHONY : motif_match.cu.s
+src/motif_match.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/motif_match.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/motif_match.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/motif_match.cu.s
+.PHONY : src/motif_match.cu.s
 
-pipeline.o: pipeline.cu.o
-.PHONY : pipeline.o
+src/pipeline.o: src/pipeline.cu.o
+.PHONY : src/pipeline.o
 
 # target to build an object file
-pipeline.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/pipeline.cu.o
-.PHONY : pipeline.cu.o
+src/pipeline.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/pipeline.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/pipeline.cu.o
+.PHONY : src/pipeline.cu.o
 
-pipeline.i: pipeline.cu.i
-.PHONY : pipeline.i
+src/pipeline.i: src/pipeline.cu.i
+.PHONY : src/pipeline.i
 
 # target to preprocess a source file
-pipeline.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/pipeline.cu.i
-.PHONY : pipeline.cu.i
+src/pipeline.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/pipeline.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/pipeline.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/pipeline.cu.i
+.PHONY : src/pipeline.cu.i
 
-pipeline.s: pipeline.cu.s
-.PHONY : pipeline.s
+src/pipeline.s: src/pipeline.cu.s
+.PHONY : src/pipeline.s
 
 # target to generate assembly for a file
-pipeline.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/pipeline.cu.s
-.PHONY : pipeline.cu.s
+src/pipeline.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/pipeline.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/pipeline.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/pipeline.cu.s
+.PHONY : src/pipeline.cu.s
 
-prefix_scan.o: prefix_scan.cu.o
-.PHONY : prefix_scan.o
+src/prefix_scan.o: src/prefix_scan.cu.o
+.PHONY : src/prefix_scan.o
 
 # target to build an object file
-prefix_scan.cu.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o
-.PHONY : prefix_scan.cu.o
+src/prefix_scan.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/prefix_scan.cu.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/prefix_scan.cu.o
+.PHONY : src/prefix_scan.cu.o
 
-prefix_scan.i: prefix_scan.cu.i
-.PHONY : prefix_scan.i
+src/prefix_scan.i: src/prefix_scan.cu.i
+.PHONY : src/prefix_scan.i
 
 # target to preprocess a source file
-prefix_scan.cu.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/prefix_scan.cu.i
-.PHONY : prefix_scan.cu.i
+src/prefix_scan.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/prefix_scan.cu.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/prefix_scan.cu.i
+.PHONY : src/prefix_scan.cu.i
 
-prefix_scan.s: prefix_scan.cu.s
-.PHONY : prefix_scan.s
+src/prefix_scan.s: src/prefix_scan.cu.s
+.PHONY : src/prefix_scan.s
 
 # target to generate assembly for a file
-prefix_scan.cu.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/prefix_scan.cu.s
-.PHONY : prefix_scan.cu.s
+src/prefix_scan.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline.dir/build.make CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_parallel.dir/build.make CMakeFiles/dna_pipeline_parallel.dir/src/prefix_scan.cu.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dna_pipeline_sequential.dir/build.make CMakeFiles/dna_pipeline_sequential.dir/src/prefix_scan.cu.s
+.PHONY : src/prefix_scan.cu.s
 
 # Help Target
 help:
@@ -306,27 +374,29 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... dna_pipeline"
-	@echo "... entropy.o"
-	@echo "... entropy.i"
-	@echo "... entropy.s"
-	@echo "... gc_content.o"
-	@echo "... gc_content.i"
-	@echo "... gc_content.s"
-	@echo "... homopolymer.o"
-	@echo "... homopolymer.i"
-	@echo "... homopolymer.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... motif_match.o"
-	@echo "... motif_match.i"
-	@echo "... motif_match.s"
-	@echo "... pipeline.o"
-	@echo "... pipeline.i"
-	@echo "... pipeline.s"
-	@echo "... prefix_scan.o"
-	@echo "... prefix_scan.i"
-	@echo "... prefix_scan.s"
+	@echo "... dna_pipeline_parallel"
+	@echo "... dna_pipeline_sequential"
+	@echo "... src/entropy.o"
+	@echo "... src/entropy.i"
+	@echo "... src/entropy.s"
+	@echo "... src/gc_content.o"
+	@echo "... src/gc_content.i"
+	@echo "... src/gc_content.s"
+	@echo "... src/homopolymer.o"
+	@echo "... src/homopolymer.i"
+	@echo "... src/homopolymer.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/motif_match.o"
+	@echo "... src/motif_match.i"
+	@echo "... src/motif_match.s"
+	@echo "... src/pipeline.o"
+	@echo "... src/pipeline.i"
+	@echo "... src/pipeline.s"
+	@echo "... src/prefix_scan.o"
+	@echo "... src/prefix_scan.i"
+	@echo "... src/prefix_scan.s"
 .PHONY : help
 
 

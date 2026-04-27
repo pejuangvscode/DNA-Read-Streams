@@ -53,4 +53,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/dna_pipeline.dir/DependInfo.cmake"
+  "CMakeFiles/dna_pipeline_parallel.dir/DependInfo.cmake"
+  "CMakeFiles/dna_pipeline_sequential.dir/DependInfo.cmake"
   )

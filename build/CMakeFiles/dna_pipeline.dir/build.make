@@ -69,130 +69,130 @@ include CMakeFiles/dna_pipeline.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/dna_pipeline.dir/flags.make
 
-CMakeFiles/dna_pipeline.dir/main.cpp.o: CMakeFiles/dna_pipeline.dir/flags.make
-CMakeFiles/dna_pipeline.dir/main.cpp.o: /home/teo/Documents/kompar/main.cpp
-CMakeFiles/dna_pipeline.dir/main.cpp.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dna_pipeline.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/main.cpp.o -MF CMakeFiles/dna_pipeline.dir/main.cpp.o.d -o CMakeFiles/dna_pipeline.dir/main.cpp.o -c /home/teo/Documents/kompar/main.cpp
+CMakeFiles/dna_pipeline.dir/src/main.cpp.o: CMakeFiles/dna_pipeline.dir/flags.make
+CMakeFiles/dna_pipeline.dir/src/main.cpp.o: /home/teo/Documents/kompar/src/main.cpp
+CMakeFiles/dna_pipeline.dir/src/main.cpp.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dna_pipeline.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/src/main.cpp.o -MF CMakeFiles/dna_pipeline.dir/src/main.cpp.o.d -o CMakeFiles/dna_pipeline.dir/src/main.cpp.o -c /home/teo/Documents/kompar/src/main.cpp
 
-CMakeFiles/dna_pipeline.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dna_pipeline.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/teo/Documents/kompar/main.cpp > CMakeFiles/dna_pipeline.dir/main.cpp.i
+CMakeFiles/dna_pipeline.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/dna_pipeline.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/teo/Documents/kompar/src/main.cpp > CMakeFiles/dna_pipeline.dir/src/main.cpp.i
 
-CMakeFiles/dna_pipeline.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dna_pipeline.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/teo/Documents/kompar/main.cpp -o CMakeFiles/dna_pipeline.dir/main.cpp.s
+CMakeFiles/dna_pipeline.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/dna_pipeline.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/teo/Documents/kompar/src/main.cpp -o CMakeFiles/dna_pipeline.dir/src/main.cpp.s
 
-CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
-CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
-CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: /home/teo/Documents/kompar/prefix_scan.cu
-CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CUDA object CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o -MF CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/prefix_scan.cu -o CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o
+CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
+CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
+CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o: /home/teo/Documents/kompar/src/prefix_scan.cu
+CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CUDA object CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o -MF CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/src/prefix_scan.cu -o CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o
 
-CMakeFiles/dna_pipeline.dir/prefix_scan.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/prefix_scan.cu.i"
+CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/dna_pipeline.dir/prefix_scan.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/prefix_scan.cu.s"
+CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/dna_pipeline.dir/gc_content.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
-CMakeFiles/dna_pipeline.dir/gc_content.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
-CMakeFiles/dna_pipeline.dir/gc_content.cu.o: /home/teo/Documents/kompar/gc_content.cu
-CMakeFiles/dna_pipeline.dir/gc_content.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CUDA object CMakeFiles/dna_pipeline.dir/gc_content.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/gc_content.cu.o -MF CMakeFiles/dna_pipeline.dir/gc_content.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/gc_content.cu -o CMakeFiles/dna_pipeline.dir/gc_content.cu.o
+CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
+CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
+CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o: /home/teo/Documents/kompar/src/gc_content.cu
+CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CUDA object CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o -MF CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/src/gc_content.cu -o CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o
 
-CMakeFiles/dna_pipeline.dir/gc_content.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/gc_content.cu.i"
+CMakeFiles/dna_pipeline.dir/src/gc_content.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/src/gc_content.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/dna_pipeline.dir/gc_content.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/gc_content.cu.s"
+CMakeFiles/dna_pipeline.dir/src/gc_content.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/src/gc_content.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/dna_pipeline.dir/homopolymer.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
-CMakeFiles/dna_pipeline.dir/homopolymer.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
-CMakeFiles/dna_pipeline.dir/homopolymer.cu.o: /home/teo/Documents/kompar/homopolymer.cu
-CMakeFiles/dna_pipeline.dir/homopolymer.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CUDA object CMakeFiles/dna_pipeline.dir/homopolymer.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/homopolymer.cu.o -MF CMakeFiles/dna_pipeline.dir/homopolymer.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/homopolymer.cu -o CMakeFiles/dna_pipeline.dir/homopolymer.cu.o
+CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
+CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
+CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o: /home/teo/Documents/kompar/src/homopolymer.cu
+CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CUDA object CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o -MF CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/src/homopolymer.cu -o CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o
 
-CMakeFiles/dna_pipeline.dir/homopolymer.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/homopolymer.cu.i"
+CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/dna_pipeline.dir/homopolymer.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/homopolymer.cu.s"
+CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/dna_pipeline.dir/motif_match.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
-CMakeFiles/dna_pipeline.dir/motif_match.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
-CMakeFiles/dna_pipeline.dir/motif_match.cu.o: /home/teo/Documents/kompar/motif_match.cu
-CMakeFiles/dna_pipeline.dir/motif_match.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CUDA object CMakeFiles/dna_pipeline.dir/motif_match.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/motif_match.cu.o -MF CMakeFiles/dna_pipeline.dir/motif_match.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/motif_match.cu -o CMakeFiles/dna_pipeline.dir/motif_match.cu.o
+CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
+CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
+CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o: /home/teo/Documents/kompar/src/motif_match.cu
+CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CUDA object CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o -MF CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/src/motif_match.cu -o CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o
 
-CMakeFiles/dna_pipeline.dir/motif_match.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/motif_match.cu.i"
+CMakeFiles/dna_pipeline.dir/src/motif_match.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/src/motif_match.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/dna_pipeline.dir/motif_match.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/motif_match.cu.s"
+CMakeFiles/dna_pipeline.dir/src/motif_match.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/src/motif_match.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/dna_pipeline.dir/entropy.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
-CMakeFiles/dna_pipeline.dir/entropy.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
-CMakeFiles/dna_pipeline.dir/entropy.cu.o: /home/teo/Documents/kompar/entropy.cu
-CMakeFiles/dna_pipeline.dir/entropy.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CUDA object CMakeFiles/dna_pipeline.dir/entropy.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/entropy.cu.o -MF CMakeFiles/dna_pipeline.dir/entropy.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/entropy.cu -o CMakeFiles/dna_pipeline.dir/entropy.cu.o
+CMakeFiles/dna_pipeline.dir/src/entropy.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
+CMakeFiles/dna_pipeline.dir/src/entropy.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
+CMakeFiles/dna_pipeline.dir/src/entropy.cu.o: /home/teo/Documents/kompar/src/entropy.cu
+CMakeFiles/dna_pipeline.dir/src/entropy.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CUDA object CMakeFiles/dna_pipeline.dir/src/entropy.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/src/entropy.cu.o -MF CMakeFiles/dna_pipeline.dir/src/entropy.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/src/entropy.cu -o CMakeFiles/dna_pipeline.dir/src/entropy.cu.o
 
-CMakeFiles/dna_pipeline.dir/entropy.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/entropy.cu.i"
+CMakeFiles/dna_pipeline.dir/src/entropy.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/src/entropy.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/dna_pipeline.dir/entropy.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/entropy.cu.s"
+CMakeFiles/dna_pipeline.dir/src/entropy.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/src/entropy.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/dna_pipeline.dir/pipeline.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
-CMakeFiles/dna_pipeline.dir/pipeline.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
-CMakeFiles/dna_pipeline.dir/pipeline.cu.o: /home/teo/Documents/kompar/pipeline.cu
-CMakeFiles/dna_pipeline.dir/pipeline.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CUDA object CMakeFiles/dna_pipeline.dir/pipeline.cu.o"
-	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/pipeline.cu.o -MF CMakeFiles/dna_pipeline.dir/pipeline.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/pipeline.cu -o CMakeFiles/dna_pipeline.dir/pipeline.cu.o
+CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o: CMakeFiles/dna_pipeline.dir/flags.make
+CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o: CMakeFiles/dna_pipeline.dir/includes_CUDA.rsp
+CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o: /home/teo/Documents/kompar/src/pipeline.cu
+CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o: CMakeFiles/dna_pipeline.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/teo/Documents/kompar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CUDA object CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o"
+	/usr/bin/nvcc -forward-unknown-to-host-compiler $(CUDA_DEFINES) $(CUDA_INCLUDES) $(CUDA_FLAGS) -MD -MT CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o -MF CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o.d -x cu -rdc=true -c /home/teo/Documents/kompar/src/pipeline.cu -o CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o
 
-CMakeFiles/dna_pipeline.dir/pipeline.cu.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/pipeline.cu.i"
+CMakeFiles/dna_pipeline.dir/src/pipeline.cu.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CUDA source to CMakeFiles/dna_pipeline.dir/src/pipeline.cu.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/dna_pipeline.dir/pipeline.cu.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/pipeline.cu.s"
+CMakeFiles/dna_pipeline.dir/src/pipeline.cu.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CUDA source to assembly CMakeFiles/dna_pipeline.dir/src/pipeline.cu.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CUDA_CREATE_ASSEMBLY_SOURCE
 
 # Object files for target dna_pipeline
 dna_pipeline_OBJECTS = \
-"CMakeFiles/dna_pipeline.dir/main.cpp.o" \
-"CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o" \
-"CMakeFiles/dna_pipeline.dir/gc_content.cu.o" \
-"CMakeFiles/dna_pipeline.dir/homopolymer.cu.o" \
-"CMakeFiles/dna_pipeline.dir/motif_match.cu.o" \
-"CMakeFiles/dna_pipeline.dir/entropy.cu.o" \
-"CMakeFiles/dna_pipeline.dir/pipeline.cu.o"
+"CMakeFiles/dna_pipeline.dir/src/main.cpp.o" \
+"CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/entropy.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o"
 
 # External object files for target dna_pipeline
 dna_pipeline_EXTERNAL_OBJECTS =
 
-CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/main.cpp.o
-CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o
-CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/gc_content.cu.o
-CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/homopolymer.cu.o
-CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/motif_match.cu.o
-CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/entropy.cu.o
-CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/pipeline.cu.o
+CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/src/main.cpp.o
+CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o
+CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o
+CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o
+CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o
+CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/src/entropy.cu.o
+CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o
 CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/build.make
 CMakeFiles/dna_pipeline.dir/cmake_device_link.o: /usr/lib/x86_64-linux-gnu/libcudart.so
 CMakeFiles/dna_pipeline.dir/cmake_device_link.o: CMakeFiles/dna_pipeline.dir/deviceLinkLibs.rsp
@@ -207,24 +207,24 @@ CMakeFiles/dna_pipeline.dir/build: CMakeFiles/dna_pipeline.dir/cmake_device_link
 
 # Object files for target dna_pipeline
 dna_pipeline_OBJECTS = \
-"CMakeFiles/dna_pipeline.dir/main.cpp.o" \
-"CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o" \
-"CMakeFiles/dna_pipeline.dir/gc_content.cu.o" \
-"CMakeFiles/dna_pipeline.dir/homopolymer.cu.o" \
-"CMakeFiles/dna_pipeline.dir/motif_match.cu.o" \
-"CMakeFiles/dna_pipeline.dir/entropy.cu.o" \
-"CMakeFiles/dna_pipeline.dir/pipeline.cu.o"
+"CMakeFiles/dna_pipeline.dir/src/main.cpp.o" \
+"CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/entropy.cu.o" \
+"CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o"
 
 # External object files for target dna_pipeline
 dna_pipeline_EXTERNAL_OBJECTS =
 
-dna_pipeline: CMakeFiles/dna_pipeline.dir/main.cpp.o
-dna_pipeline: CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o
-dna_pipeline: CMakeFiles/dna_pipeline.dir/gc_content.cu.o
-dna_pipeline: CMakeFiles/dna_pipeline.dir/homopolymer.cu.o
-dna_pipeline: CMakeFiles/dna_pipeline.dir/motif_match.cu.o
-dna_pipeline: CMakeFiles/dna_pipeline.dir/entropy.cu.o
-dna_pipeline: CMakeFiles/dna_pipeline.dir/pipeline.cu.o
+dna_pipeline: CMakeFiles/dna_pipeline.dir/src/main.cpp.o
+dna_pipeline: CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o
+dna_pipeline: CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o
+dna_pipeline: CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o
+dna_pipeline: CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o
+dna_pipeline: CMakeFiles/dna_pipeline.dir/src/entropy.cu.o
+dna_pipeline: CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o
 dna_pipeline: CMakeFiles/dna_pipeline.dir/build.make
 dna_pipeline: /usr/lib/x86_64-linux-gnu/libcudart.so
 dna_pipeline: CMakeFiles/dna_pipeline.dir/cmake_device_link.o

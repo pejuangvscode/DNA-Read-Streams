@@ -1,0 +1,58 @@
+Flow Diagram End-to-End
+
+```mermaid
+flowchart TD
+    A[Start Program] --> B[Init Konstanta dan Parameter]
+    B --> C[Alokasi Host Pinned Memory]
+    C --> D[Generate Dataset DNA Sintetis<br/>A C G T dengan mt19937]
+    D --> E[Hash Forbidden Motifs]
+    E --> F[Run GPU Parallel Pipeline]
+
+    F --> G1[Stream H2D<br/>copy chunk n+1]
+    F --> G2[Stream Compute<br/>GC Homopolymer Motif Entropy untuk chunk n]
+    F --> G3[Stream D2H<br/>copy hasil chunk n-1]
+    G1 --> H[Sinkronisasi Event]
+    G2 --> H
+    G3 --> H
+
+    H --> I[Run CPU Reference Chunked]
+    I --> J[Run CPU Sequential Baseline]
+    J --> K[Hitung Mismatch GPU vs CPU]
+    K --> L[Hitung Timing Throughput Speedup]
+    L --> M[Tulis ke Terminal]
+    M --> N[Simpan Report ke prof/Parallel atau prof/Sequential atau prof/Both]
+    N --> O[Free Host dan Device Resources]
+    O --> P[End]
+```
+
+Flow Diagram Modul dan Algoritma
+
+```mermaid
+flowchart LR
+    A[src/main.cpp] --> B[src/pipeline.cu]
+    A --> C[CPU Sequential Functions]
+    A --> D[Output Report]
+
+    B --> E[src/gc_content.cu]
+    B --> F[src/homopolymer.cu]
+    B --> G[src/motif_match.cu]
+    B --> H[src/entropy.cu]
+    B --> I[src/prefix_scan.cu]
+    B --> J[src/dna_features.cuh]
+
+    E --> E1[Map GC biner]
+    E1 --> E2[Exclusive Prefix Scan]
+    E2 --> E3[Query Window O1]
+
+    F --> F1[Compare S i dan S i-1]
+    F1 --> F2[Segmented Exclusive Scan]
+    F2 --> F3[Threshold MAX_HOMOPOLYMER]
+
+    G --> G1[2-bit Encoding]
+    G1 --> G2[Rolling Hash k-mer]
+    G2 --> G3[Lookup di Constant Memory]
+
+    H --> H1[Shared Histogram 4^k]
+    H1 --> H2[Entropy Shannon]
+    H2 --> H3[Violation jika di bawah threshold]
+```

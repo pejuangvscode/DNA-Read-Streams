@@ -1,0 +1,49 @@
+=== Run Configuration ===
+Mode                     : both
+Use --mode parallel|sequential|both
+
+=== Validation ===
+GC mismatches           : 0
+Homopolymer mismatches  : 51
+Motif mismatches        : 0
+Entropy mismatches      : 0
+CPU reference time (s)  : 0.186268
+
+=== Validation vs CPU Sequential ===
+GC mismatches           : 0
+Homopolymer mismatches  : 51
+Motif mismatches        : 0
+Entropy mismatches      : 0
+
+=== GPU Timings ===
+H2D transfer ms         : 0.055872
+GC kernel ms            : 0.509824
+Homopolymer kernel ms   : 0.99728
+Motif kernel ms         : 0.200704
+Entropy kernel ms       : 4.61606
+D2H transfer ms         : 0.634112
+Total pipeline ms       : 18.7126
+
+=== GPU Throughput ===
+GC      : 0.512648 GB/s, 5.12648e+08 bases/s
+HOMO    : 0.262073 GB/s, 2.62073e+08 bases/s
+MOTIF   : 1.30222 GB/s, 1.30222e+09 bases/s
+ENTROPY : 0.0566197 GB/s, 5.66197e+07 bases/s
+
+=== CPU Sequential Timings ===
+GC sequential ms        : 2.99634
+Homopolymer seq ms      : 0.812834
+Motif sequential ms     : 8.50745
+Entropy sequential ms   : 171.03
+Total sequential ms     : 183.355
+CPU sequential throughput: 0.00142543 GB/s, 1.42543e+06 bases/s
+
+=== Compare Parallel vs Sequential ===
+Speedup total (CPU seq / GPU total) : 9.79851x
+
+
+=== Dataset Generation ===
+Dataset type             : binary-file to ACGT (naive 2-bit mapping)
+Input file               : dataset/dongeng.txt
+Sequence length          : 261360 bases
+Mapping                  : 00->A, 01->C, 10->G, 11->T

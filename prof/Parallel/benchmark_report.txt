@@ -1,0 +1,25 @@
+=== Run Configuration ===
+Mode                     : parallel
+Use --mode parallel|sequential|both
+
+=== GPU Timings ===
+H2D transfer ms         : 0.058816
+GC kernel ms            : 0.503808
+Homopolymer kernel ms   : 0.999424
+Motif kernel ms         : 0.2
+Entropy kernel ms       : 4.66688
+D2H transfer ms         : 0.633888
+Total pipeline ms       : 18.7853
+
+=== GPU Throughput ===
+GC      : 0.518769 GB/s, 5.18769e+08 bases/s
+HOMO    : 0.261511 GB/s, 2.61511e+08 bases/s
+MOTIF   : 1.3068 GB/s, 1.3068e+09 bases/s
+ENTROPY : 0.0560032 GB/s, 5.60032e+07 bases/s
+
+
+=== Dataset Generation ===
+Dataset type             : binary-file to ACGT (naive 2-bit mapping)
+Input file               : dataset/dongeng.txt
+Sequence length          : 261360 bases
+Mapping                  : 00->A, 01->C, 10->G, 11->T

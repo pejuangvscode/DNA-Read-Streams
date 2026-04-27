@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/teo/Documents/kompar/entropy.cu" "CMakeFiles/dna_pipeline.dir/entropy.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/entropy.cu.o.d"
-  "/home/teo/Documents/kompar/gc_content.cu" "CMakeFiles/dna_pipeline.dir/gc_content.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/gc_content.cu.o.d"
-  "/home/teo/Documents/kompar/homopolymer.cu" "CMakeFiles/dna_pipeline.dir/homopolymer.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/homopolymer.cu.o.d"
-  "/home/teo/Documents/kompar/motif_match.cu" "CMakeFiles/dna_pipeline.dir/motif_match.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/motif_match.cu.o.d"
-  "/home/teo/Documents/kompar/pipeline.cu" "CMakeFiles/dna_pipeline.dir/pipeline.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/pipeline.cu.o.d"
-  "/home/teo/Documents/kompar/prefix_scan.cu" "CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/prefix_scan.cu.o.d"
-  "/home/teo/Documents/kompar/main.cpp" "CMakeFiles/dna_pipeline.dir/main.cpp.o" "gcc" "CMakeFiles/dna_pipeline.dir/main.cpp.o.d"
+  "/home/teo/Documents/kompar/src/entropy.cu" "CMakeFiles/dna_pipeline.dir/src/entropy.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/src/entropy.cu.o.d"
+  "/home/teo/Documents/kompar/src/gc_content.cu" "CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/src/gc_content.cu.o.d"
+  "/home/teo/Documents/kompar/src/homopolymer.cu" "CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/src/homopolymer.cu.o.d"
+  "/home/teo/Documents/kompar/src/motif_match.cu" "CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/src/motif_match.cu.o.d"
+  "/home/teo/Documents/kompar/src/pipeline.cu" "CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/src/pipeline.cu.o.d"
+  "/home/teo/Documents/kompar/src/prefix_scan.cu" "CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o" "gcc" "CMakeFiles/dna_pipeline.dir/src/prefix_scan.cu.o.d"
+  "/home/teo/Documents/kompar/src/main.cpp" "CMakeFiles/dna_pipeline.dir/src/main.cpp.o" "gcc" "CMakeFiles/dna_pipeline.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
