@@ -7,7 +7,7 @@ GC mismatches           : 0
 Homopolymer mismatches  : 51
 Motif mismatches        : 0
 Entropy mismatches      : 0
-CPU reference time (s)  : 0.186268
+CPU reference time (s)  : 0.109462
 
 === Validation vs CPU Sequential ===
 GC mismatches           : 0
@@ -16,30 +16,30 @@ Motif mismatches        : 0
 Entropy mismatches      : 0
 
 === GPU Timings ===
-H2D transfer ms         : 0.055872
-GC kernel ms            : 0.509824
-Homopolymer kernel ms   : 0.99728
-Motif kernel ms         : 0.200704
-Entropy kernel ms       : 4.61606
-D2H transfer ms         : 0.634112
-Total pipeline ms       : 18.7126
+H2D transfer ms         : 0.050464
+GC kernel ms            : 0.335872
+Homopolymer kernel ms   : 0.643136
+Motif kernel ms         : 0.169632
+Entropy kernel ms       : 4.56259
+D2H transfer ms         : 0.628608
+Total pipeline ms       : 13.3368
 
 === GPU Throughput ===
-GC      : 0.512648 GB/s, 5.12648e+08 bases/s
-HOMO    : 0.262073 GB/s, 2.62073e+08 bases/s
-MOTIF   : 1.30222 GB/s, 1.30222e+09 bases/s
-ENTROPY : 0.0566197 GB/s, 5.66197e+07 bases/s
+GC      : 0.778154 GB/s, 7.78154e+08 bases/s
+HOMO    : 0.406384 GB/s, 4.06384e+08 bases/s
+MOTIF   : 1.54075 GB/s, 1.54075e+09 bases/s
+ENTROPY : 0.0572832 GB/s, 5.72832e+07 bases/s
 
 === CPU Sequential Timings ===
-GC sequential ms        : 2.99634
-Homopolymer seq ms      : 0.812834
-Motif sequential ms     : 8.50745
-Entropy sequential ms   : 171.03
-Total sequential ms     : 183.355
-CPU sequential throughput: 0.00142543 GB/s, 1.42543e+06 bases/s
+GC sequential ms        : 1.75215
+Homopolymer seq ms      : 0.477307
+Motif sequential ms     : 5.18276
+Entropy sequential ms   : 102.543
+Total sequential ms     : 109.961
+CPU sequential throughput: 0.00237683 GB/s, 2.37683e+06 bases/s
 
 === Compare Parallel vs Sequential ===
-Speedup total (CPU seq / GPU total) : 9.79851x
+Speedup total (CPU seq / GPU total) : 8.24498x
 
 
 === Dataset Generation ===

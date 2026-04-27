@@ -1,0 +1,18 @@
+=== Run Configuration ===
+Mode                     : sequential
+Use --mode parallel|sequential|both
+
+=== CPU Sequential Timings ===
+GC sequential ms        : 1.76409
+Homopolymer seq ms      : 0.472208
+Motif sequential ms     : 5.07541
+Entropy sequential ms   : 105.229
+Total sequential ms     : 112.549
+CPU sequential throughput: 0.00232219 GB/s, 2.32219e+06 bases/s
+
+
+=== Dataset Generation ===
+Dataset type             : binary-file to ACGT (naive 2-bit mapping)
+Input file               : dataset/dongeng.txt
+Sequence length          : 261360 bases
+Mapping                  : 00->A, 01->C, 10->G, 11->T
