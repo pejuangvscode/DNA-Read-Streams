@@ -1,3 +1,10 @@
+Kelompok 2:
+- Fiolita Chresia Putri (01082230027)
+- Jennifer Christabelle (01082230009)
+- Gebrina Augustine Padatu (01082230041)
+- Teofilus Satria Rada Insani (01082230015)
+
+
 # GPU-Accelerated DNA Feature Extraction Pipeline (CUDA C++)
 
 Proyek ini melakukan ekstraksi fitur kualitas sekuens DNA dengan dua pendekatan:
