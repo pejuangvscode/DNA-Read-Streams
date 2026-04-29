@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <filesystem>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 #include <random>
@@ -114,6 +115,94 @@ int parse_sequence_length(int argc, char** argv) {
         }
     }
     return 0;
+}
+
+vector<int> parse_sizes(int argc, char** argv) {
+    for (int i = 1; i < argc; ++i) {
+        const string arg = argv[i];
+        string csv;
+        if (arg.rfind("--sizes=", 0) == 0) {
+            csv = arg.substr(8);
+        } else if (arg == "--sizes" && i + 1 < argc) {
+            csv = argv[++i];
+        }
+        if (!csv.empty()) {
+            vector<int> sizes;
+            istringstream ss(csv);
+            string token;
+            while (getline(ss, token, ',')) {
+                try {
+                    const int v = stoi(token);
+                    if (v > 0) sizes.push_back(v);
+                } catch (...) {}
+            }
+            sort(sizes.begin(), sizes.end());
+            sizes.erase(unique(sizes.begin(), sizes.end()), sizes.end());
+            return sizes;
+        }
+    }
+    return {};
+}
+
+struct BenchmarkRecord {
+    int    sequence_length = 0;
+    double gpu_h2d_ms      = 0.0;
+    double gpu_gc_ms       = 0.0;
+    double gpu_homo_ms     = 0.0;
+    double gpu_motif_ms    = 0.0;
+    double gpu_entropy_ms  = 0.0;
+    double gpu_d2h_ms      = 0.0;
+    double gpu_total_ms    = 0.0;
+    double cpu_gc_ms       = 0.0;
+    double cpu_homo_ms     = 0.0;
+    double cpu_motif_ms    = 0.0;
+    double cpu_entropy_ms  = 0.0;
+    double cpu_total_ms    = 0.0;
+    double speedup         = 0.0;
+    double gpu_bases_per_s = 0.0;
+    double cpu_bases_per_s = 0.0;
+    double gpu_gbs         = 0.0;
+    double cpu_gbs         = 0.0;
+    double gpu_gflops      = 0.0;
+    double cpu_gflops      = 0.0;
+};
+
+double estimate_gflops(int n, int motif_k, int entropy_k, double ms) {
+    if (ms <= 0.0 || n <= 0) return 0.0;
+    // GC: N float divisions + N comparisons
+    const double gc_flops = static_cast<double>(n) * 2.0;
+    // Homopolymer: N comparisons
+    const double homo_flops = static_cast<double>(n) * 1.0;
+    // Motif: N * motif_k 2-bit encodes + N comparisons
+    const double motif_flops = static_cast<double>(n) * (static_cast<double>(motif_k) + 1.0) * 0.5;
+    // Entropy: per window -> bins * log2 + warp reduce
+    const int bins = 1 << (2 * entropy_k);
+    const int valid_windows = max(0, n - WINDOW_SIZE + 1);
+    const double entropy_flops = static_cast<double>(valid_windows) * (static_cast<double>(bins) * 3.0 + 32.0);
+    const double total_flops = gc_flops + homo_flops + motif_flops + entropy_flops;
+    return (total_flops / 1.0e9) / (ms * 1.0e-3);
+}
+
+void write_benchmark_csv(const vector<BenchmarkRecord>& records, const string& path) {
+    filesystem::create_directories(filesystem::path(path).parent_path());
+    ofstream f(path, ios::out | ios::trunc);
+    if (!f) { cerr << "Failed to write CSV: " << path << "\n"; return; }
+    f << "sequence_length,"
+      << "gpu_h2d_ms,gpu_gc_ms,gpu_homo_ms,gpu_motif_ms,gpu_entropy_ms,gpu_d2h_ms,gpu_total_ms,"
+      << "cpu_gc_ms,cpu_homo_ms,cpu_motif_ms,cpu_entropy_ms,cpu_total_ms,"
+      << "speedup,gpu_bases_per_s,cpu_bases_per_s,gpu_gbs,cpu_gbs,gpu_gflops,cpu_gflops\n";
+    for (const auto& r : records) {
+        f << r.sequence_length << ","
+          << r.gpu_h2d_ms << "," << r.gpu_gc_ms << "," << r.gpu_homo_ms << ","
+          << r.gpu_motif_ms << "," << r.gpu_entropy_ms << "," << r.gpu_d2h_ms << ","
+          << r.gpu_total_ms << ","
+          << r.cpu_gc_ms << "," << r.cpu_homo_ms << "," << r.cpu_motif_ms << ","
+          << r.cpu_entropy_ms << "," << r.cpu_total_ms << ","
+          << r.speedup << ","
+          << r.gpu_bases_per_s << "," << r.cpu_bases_per_s << ","
+          << r.gpu_gbs << "," << r.cpu_gbs << ","
+          << r.gpu_gflops << "," << r.cpu_gflops << "\n";
+    }
 }
 
 vector<unsigned char> read_binary_input_file(const string& path) {
@@ -439,13 +528,20 @@ int main(int argc, char** argv) {
     constexpr float kMinEntropy = 1.60f;
     const string input_file_path = parse_input_file_path(argc, argv);
     const int sequence_length_override = parse_sequence_length(argc, argv);
+    const vector<int> benchmark_sizes = parse_sizes(argc, argv);
+    const bool is_benchmark_mode = !benchmark_sizes.empty();
 
     vector<unsigned char> input_file_bytes;
     int kSequenceLength = 0;
 
     try {
         input_file_bytes = read_binary_input_file(input_file_path);
-        kSequenceLength = resolve_sequence_length(input_file_bytes, sequence_length_override);
+        if (is_benchmark_mode) {
+            // Allocate for the largest requested size; smaller sizes reuse the same buffer.
+            kSequenceLength = benchmark_sizes.back();
+        } else {
+            kSequenceLength = resolve_sequence_length(input_file_bytes, sequence_length_override);
+        }
     } catch (const exception& e) {
         cerr << "Input preparation error: " << e.what() << "\n";
         cerr << "Usage: " << argv[0]
@@ -453,8 +549,37 @@ int main(int argc, char** argv) {
         return 1;
     }
 
+    // Use pinned memory only when GPU is needed (faster H2D transfers).
+    // For sequential-only mode, plain malloc avoids a hard CUDA dependency.
     char* h_sequence = nullptr;
-    CUDA_CHECK(cudaMallocHost(&h_sequence, static_cast<size_t>(kSequenceLength) * sizeof(char)));
+    const bool need_gpu = run_parallel || is_benchmark_mode;
+    bool h_sequence_is_pinned = false;
+
+    if (need_gpu) {
+        cudaError_t pin_err = cudaMallocHost(&h_sequence,
+                                             static_cast<size_t>(kSequenceLength) * sizeof(char));
+        if (pin_err == cudaSuccess) {
+            h_sequence_is_pinned = true;
+        } else {
+            // GPU not available or out of pinned memory — abort if GPU is truly required.
+            fprintf(stderr, "CUDA error %s:%d: %s\n", __FILE__, __LINE__,
+                    cudaGetErrorString(pin_err));
+            return 1;
+        }
+    } else {
+        // Sequential-only: plain malloc, no CUDA dependency.
+        h_sequence = static_cast<char*>(malloc(static_cast<size_t>(kSequenceLength) * sizeof(char)));
+        if (!h_sequence) {
+            cerr << "Out of memory allocating sequence buffer.\n";
+            return 1;
+        }
+    }
+
+    auto free_h_sequence = [&]() {
+        if (h_sequence_is_pinned) { cudaFreeHost(h_sequence); }
+        else                      { free(h_sequence); }
+        h_sequence = nullptr;
+    };
 
     try {
         generate_dataset_from_binary_bytes(input_file_bytes, h_sequence, kSequenceLength);
@@ -462,9 +587,11 @@ int main(int argc, char** argv) {
         cerr << "Dataset generation error: " << e.what() << "\n";
         cerr << "Usage: " << argv[0]
              << " --input-file <path> [--sequence-length <n>] [--mode parallel|sequential|both]\n";
-        CUDA_CHECK(cudaFreeHost(h_sequence));
+        free_h_sequence();
         return 1;
     }
+
+    unordered_set<uint64_t> forbidden_set_early;
 
     vector<string> forbidden_motifs = {"AAAA", "CCCC", "GGGG", "TTTT", "ACGTACGT"};
     vector<uint64_t> forbidden_hashes;
@@ -472,6 +599,108 @@ int main(int argc, char** argv) {
     for (const string& motif : forbidden_motifs) {
         forbidden_hashes.push_back(hash_kmer_cpu(motif.c_str(), 0, static_cast<int>(motif.size())));
     }
+
+    for (const auto& h : forbidden_hashes) forbidden_set_early.insert(h);
+
+    // ── BENCHMARK SWEEP MODE ─────────────────────────────────────────────────
+    if (is_benchmark_mode) {
+        cout << "\n=== Benchmark Sweep Mode ==="
+             << " (" << benchmark_sizes.size() << " sizes)\n";
+        cout << "Sizes: ";
+        for (int sz : benchmark_sizes) cout << sz << " ";
+        cout << "\n\n";
+
+        vector<BenchmarkRecord> records;
+        records.reserve(benchmark_sizes.size());
+
+        for (int sz : benchmark_sizes) {
+            const size_t sz_bytes = static_cast<size_t>(sz);
+            cout << "[Sweep] N = " << sz << " bases ... " << flush;
+
+            BenchmarkRecord rec;
+            rec.sequence_length = sz;
+
+            // ── GPU parallel ──────────────────────────────────────────────
+            FeatureResult gpu_res{};
+            gpu_res.gc_violations          = nullptr;
+            gpu_res.homopolymer_violations = nullptr;
+            gpu_res.motif_collisions       = nullptr;
+            gpu_res.entropy_vector         = nullptr;
+            gpu_res.sequence_length        = sz;
+            PipelineTimings pt{};
+
+            run_feature_pipeline_async(h_sequence, sz, kMotifK, kEntropyK,
+                                       kMinEntropy, forbidden_hashes, &gpu_res, &pt);
+
+            rec.gpu_h2d_ms     = static_cast<double>(pt.h2d_ms);
+            rec.gpu_gc_ms      = static_cast<double>(pt.gc_ms);
+            rec.gpu_homo_ms    = static_cast<double>(pt.homopolymer_ms);
+            rec.gpu_motif_ms   = static_cast<double>(pt.motif_ms);
+            rec.gpu_entropy_ms = static_cast<double>(pt.entropy_ms);
+            rec.gpu_d2h_ms     = static_cast<double>(pt.d2h_ms);
+            rec.gpu_total_ms   = static_cast<double>(pt.total_ms);
+            rec.gpu_bases_per_s = bases_per_second(sz, static_cast<double>(pt.total_ms));
+            rec.gpu_gbs         = gb_per_second(sz_bytes, static_cast<double>(pt.total_ms));
+            rec.gpu_gflops      = estimate_gflops(sz, kMotifK, kEntropyK,
+                                                  static_cast<double>(pt.total_ms));
+
+            if (gpu_res.gc_violations)          CUDA_CHECK(cudaFreeHost(gpu_res.gc_violations));
+            if (gpu_res.homopolymer_violations) CUDA_CHECK(cudaFreeHost(gpu_res.homopolymer_violations));
+            if (gpu_res.motif_collisions)       CUDA_CHECK(cudaFreeHost(gpu_res.motif_collisions));
+            if (gpu_res.entropy_vector)         CUDA_CHECK(cudaFreeHost(gpu_res.entropy_vector));
+
+            // ── CPU sequential ────────────────────────────────────────────
+            vector<int>   seq_gc, seq_homo, seq_motif;
+            vector<float> seq_entropy;
+            CpuSequentialTimings ct{};
+
+            run_cpu_pipeline_sequential(h_sequence, sz, kMotifK, kEntropyK,
+                                        forbidden_set_early,
+                                        seq_gc, seq_homo, seq_motif, seq_entropy, &ct);
+
+            rec.cpu_gc_ms       = ct.gc_ms;
+            rec.cpu_homo_ms     = ct.homopolymer_ms;
+            rec.cpu_motif_ms    = ct.motif_ms;
+            rec.cpu_entropy_ms  = ct.entropy_ms;
+            rec.cpu_total_ms    = ct.total_ms;
+            rec.cpu_bases_per_s = bases_per_second(sz, ct.total_ms);
+            rec.cpu_gbs         = gb_per_second(sz_bytes, ct.total_ms);
+            rec.cpu_gflops      = estimate_gflops(sz, kMotifK, kEntropyK, ct.total_ms);
+
+            rec.speedup = (pt.total_ms > 0.0f)
+                              ? (ct.total_ms / static_cast<double>(pt.total_ms))
+                              : 0.0;
+
+            cout << "GPU=" << rec.gpu_total_ms << "ms"
+                 << " | CPU=" << rec.cpu_total_ms << "ms"
+                 << " | Speedup=" << rec.speedup << "x"
+                 << " | GPU_GFLOPS=" << rec.gpu_gflops << "\n";
+
+            records.push_back(rec);
+        }
+
+        const string csv_path = "prof/benchmark_sweep.csv";
+        write_benchmark_csv(records, csv_path);
+        cout << "\nBenchmark CSV saved to: " << csv_path << "\n";
+
+        // Print summary table
+        cout << "\n" << string(90, '-') << "\n";
+        cout << "  N (bases)   | GPU total ms | CPU total ms | Speedup  | GPU GFLOPS | CPU GFLOPS\n";
+        cout << string(90, '-') << "\n";
+        for (const auto& r : records) {
+            cout << "  " << setw(11) << r.sequence_length
+                 << " | " << setw(12) << r.gpu_total_ms
+                 << " | " << setw(12) << r.cpu_total_ms
+                 << " | " << setw(8)  << r.speedup
+                 << " | " << setw(10) << r.gpu_gflops
+                 << " | " << setw(10) << r.cpu_gflops << "\n";
+        }
+        cout << string(90, '-') << "\n";
+
+        free_h_sequence();
+        return 0;
+    }
+    // ── END BENCHMARK SWEEP MODE ─────────────────────────────────────────────
 
     FeatureResult gpu_result{};
     gpu_result.gc_violations = nullptr;
@@ -506,6 +735,7 @@ int main(int argc, char** argv) {
     CpuSequentialTimings cpu_seq_timings{};
 
     unordered_set<uint64_t> forbidden_set(forbidden_hashes.begin(), forbidden_hashes.end());
+    forbidden_set.insert(forbidden_set_early.begin(), forbidden_set_early.end());
 
     double cpu_seconds = 0.0;
     if (run_chunked_reference) {
@@ -670,7 +900,7 @@ int main(int argc, char** argv) {
         CUDA_CHECK(cudaFreeHost(gpu_result.entropy_vector));
     }
 
-    CUDA_CHECK(cudaFreeHost(h_sequence));
+    free_h_sequence();
 
     return 0;
 }

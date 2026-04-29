@@ -3,12 +3,12 @@ Mode                     : sequential
 Use --mode parallel|sequential|both
 
 === CPU Sequential Timings ===
-GC sequential ms        : 1.76409
-Homopolymer seq ms      : 0.472208
-Motif sequential ms     : 5.07541
-Entropy sequential ms   : 105.229
-Total sequential ms     : 112.549
-CPU sequential throughput: 0.00232219 GB/s, 2.32219e+06 bases/s
+GC sequential ms        : 1.93688
+Homopolymer seq ms      : 0.85932
+Motif sequential ms     : 5.33133
+Entropy sequential ms   : 121.22
+Total sequential ms     : 129.348
+CPU sequential throughput: 0.00202059 GB/s, 2.02059e+06 bases/s
 
 
 === Dataset Generation ===

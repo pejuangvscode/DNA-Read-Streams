@@ -75,10 +75,12 @@ Jika generator berbeda, lokasi executable bisa sedikit berbeda di bawah folder `
 ### 1) Mode runtime pada binary umum
 
 ```bash
-./build/dna_pipeline --input-file <path_file_biner> --mode both
-./build/dna_pipeline --input-file <path_file_biner> --mode parallel
-./build/dna_pipeline --input-file <path_file_biner> --mode sequential
+./build/dna_pipeline --input-file dataset/dongeng.txt --mode both
+./build/dna_pipeline --input-file dataset/dongeng.txt --mode parallel
+./build/dna_pipeline --input-file dataset/dongeng.txt --mode sequential
 ```
+
+dataset/dongeng.txt
 
 Alias yang didukung:
 
